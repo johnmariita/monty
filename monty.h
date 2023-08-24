@@ -40,6 +40,7 @@ typedef struct instruction_s
 } instruction_t;
 
 void *_realloc(void *ptr, unsigned int new_size);
+void free_stack(stack_t **stack);
 int custom_getline(char **lineptr, size_t *n, FILE *stream);
 void read_file(FILE *fp, stack_t **);
 void push(stack_t **stack, unsigned int line_number);

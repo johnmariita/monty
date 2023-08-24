@@ -20,6 +20,8 @@ void push(stack_t **stack, unsigned int line)
 	}
 	newnode->prev = NULL;
 	newnode->n = glo_vars.value;
+	if (*stack)
+		(*stack)->prev = newnode;
 	newnode->next = *stack;
 	*stack = newnode;
 }

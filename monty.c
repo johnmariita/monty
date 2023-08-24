@@ -10,8 +10,8 @@
  */
 int main(int argc, char **argv)
 {
-	FILE *fp;
-	stack_t *stack = NULL;
+	FILE *fp = NULL;
+	stack_t *stack = NULL, *ptr = stack;
 
 	if (argc != 2)
 	{
@@ -26,5 +26,11 @@ int main(int argc, char **argv)
 	}
 	read_file(fp, &stack);
 	fclose(fp);
+	while (stack != NULL)
+	{
+		ptr = stack;
+		stack = stack->next;
+		free(ptr);
+	}
 	return (0);
 }
