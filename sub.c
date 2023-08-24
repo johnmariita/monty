@@ -20,7 +20,7 @@ void sub(stack_t **stack, unsigned int line_number)
 	}
 	if (i < 2)
 	{
-		fprintf(stderr, "L%u: can't add, stack too short", line_number);
+		fprintf(stderr, "L%u: can't sub, stack too short", line_number);
 		exit(EXIT_FAILURE);
 	}
 	ptr = *stack;
