@@ -1,6 +1,8 @@
 #ifndef MONTY_H
 #define MONTY_H
+#include <stdio.h>
 
+#define BUFFER_SIZE 1024
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -17,6 +19,12 @@ typedef struct stack_s
         struct stack_s *next;
 } stack_t;
 
+typedef struct globals
+{
+	int value;
+	int line_number;
+}glob;
+extern glob glo_vars;
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -31,5 +39,10 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void read_file(FILE *fp);
+void *_realloc(void *ptr, unsigned int new_size);
+int custom_getline(char **lineptr, size_t *n, FILE *stream);
+void read_file(FILE *fp, stack_t **);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 #endif
