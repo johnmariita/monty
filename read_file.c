@@ -16,7 +16,7 @@ void read_file(FILE *file, stack_t **stack)
 	int i = 0;
 	char **command = malloc(sizeof(char *) * 3);
 	instruction_t ops[] = {{"push", push}, {"pint", pint},
-				{"pall", pall},
+				{"pop", pop}, {"pall", pall},
 				{NULL, NULL}
 	};
 
@@ -32,8 +32,8 @@ void read_file(FILE *file, stack_t **stack)
 			if (glo_vars.value == 0 && command[2][0] != '0')
 			{
 				free(line);
-				free(command);
 				free_stack(stack);
+				free(command);
 				fprintf(stderr, "L%ld: usage: push integer\n", l_number);
 				fclose(file);
 				exit(EXIT_FAILURE);
@@ -50,7 +50,6 @@ void read_file(FILE *file, stack_t **stack)
 		if (ops[i].opcode == NULL)
 		{
 			free(line);
-			free(command);
 			free_stack(stack);
 			fclose(file);
 			fprintf(stderr, "L%ld: unknown instruction %s\n", l_number, command[1]);
