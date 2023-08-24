@@ -19,6 +19,7 @@ void read_file(FILE *file, stack_t **stack)
 				{"pop", pop}, {"pall", pall},
 				{"swap", swap}, {"add", add},
 				{"sub", sub}, {"divs", divs},
+				{"mul", mul}, {"mod", mod},
 				{"nop", nop}, {NULL, NULL}
 	};
 
