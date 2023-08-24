@@ -18,6 +18,7 @@ void read_file(FILE *file, stack_t **stack)
 	instruction_t ops[] = {{"push", push}, {"pint", pint},
 				{"pop", pop}, {"pall", pall},
 				{"swap", swap}, {"add", add},
+				{"sub", sub},
 				{"nop", nop}, {NULL, NULL}
 	};
 
