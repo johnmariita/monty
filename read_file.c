@@ -17,7 +17,7 @@ void read_file(FILE *file, stack_t **stack)
 	char **command = malloc(sizeof(char *) * 3);
 	instruction_t ops[] = {{"push", push}, {"pint", pint},
 				{"pop", pop}, {"pall", pall},
-				{NULL, NULL}
+				{"nop", nop}, {NULL, NULL}
 	};
 
 	while (custom_getline(&line, &size, file) != -1)
