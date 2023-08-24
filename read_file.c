@@ -29,6 +29,11 @@ void read_file(FILE *file, stack_t **stack)
 		if (command[2])
 		{
 			glo_vars.value = atoi(command[2]);
+			if (glo_vars.value == 0 && command[2][0] != '0')
+			{
+				fprintf(stderr, "L%ld: usage: push integer\n", l_number);
+				exit(EXIT_FAILURE);
+			}
 		}
 		for (i = 0; ops[i].opcode; i++)
 		{
